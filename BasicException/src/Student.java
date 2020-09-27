@@ -65,7 +65,7 @@ public class Student {
 
 		Student std = new Student(roll, name, age, course);
 		try {
-			std.checkName(name);	
+			std.checkName(name);
 			std.checkAge(age);			
 			std.studentInfo(); 
 		}catch(Exception e) {

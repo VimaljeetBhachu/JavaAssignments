@@ -1,9 +1,10 @@
 import java.util.Scanner;
 public class CommandLineArgs {
 	
-	public static void addingNumbers(double numOne,double numTwo,double numThree) {
+	public static double addingNumbers(double numOne,double numTwo,double numThree) {
 		double numTotal = numOne + numTwo + numThree;
 		System.out.println("Sum: " + numTotal);
+		return numTotal;
 	}
 
 	public static void main(String[] args) {
