@@ -1,6 +1,10 @@
 import java.io.IOException;
+import org.apache.log4j.Logger;
 import java.util.Scanner;
+
 public class Factorial {
+	
+	final static Logger logger = Logger.getLogger(Factorial.class);
 	
 	public long getFactorial(int num, int numMaxValue) throws IOException {
 		  int i;
@@ -9,26 +13,10 @@ public class Factorial {
 			      fact=fact*i;    
 			  }
 			  if(fact > numMaxValue) {
-				  System.out.println("Max value allowed is: " + numMaxValue);
+				  logger.fatal("Max value allowed is : " + numMaxValue);
 				  throw new IOException("FactorialException");
 			  }else {				  
 				  return fact;
 			  }	
-	}
-	
-	public static void main(String[] args) throws IOException {
-		
-	@SuppressWarnings("resource")
-	Scanner scan = new Scanner(System.in);
-	System.out.println("Enter a number: ");
-	int num = scan.nextInt();
-	int numMaxValue = Integer.MAX_VALUE;
-		if(num < 2) {
-			throw new IOException("InvalidInputException");  
-		} else {
-			Factorial fac = new Factorial();
-			long objFact = fac.getFactorial(num, numMaxValue);
-			System.out.println("Factorial of " + num + " is: " + objFact);
-		}
 	}
 }

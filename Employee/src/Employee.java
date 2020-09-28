@@ -1,6 +1,15 @@
 import java.util.Scanner;
 public class Employee {
 	
+	int id;
+	String name;
+	int monthlyBasic;
+	
+	static int esic;
+	static int mediclam;
+	static int professionalTax;
+	
+	
 	public void getAnnualBasic(double monthlyBasic) {
 		System.out.println("Annual Basic: " + (12 * monthlyBasic));
 	}
@@ -39,14 +48,14 @@ public class Employee {
 		float profTax;		
 		
 		try {
-			System.out.print("Enter Employee name:");
-			String eName = scan.nextLine();
-			System.out.print("Enter Monthly Basic: ");
-			monthlyBasic = scan.nextInt();
 			int eId;
 			rand = Math.random();
 			eId = (int)(rand * 5000);
 			System.out.println("Employee Id :" + eId);
+			System.out.print("Enter Employee name:");
+			String eName = scan.nextLine();
+			System.out.print("Enter Monthly Basic: ");
+			monthlyBasic = scan.nextInt();
 			
 			double hra = (0.5 * monthlyBasic);
 			double pf = (0.1 * monthlyBasic);
