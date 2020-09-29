@@ -1,27 +1,17 @@
 import java.util.Scanner;
+import java.util.logging.Logger;
 public class CommandLineArgs {
 	
-	public static double addingNumbers(double numOne,double numTwo,double numThree) {
+	//final Logger logger = Logger.getLogger(CommandLineArgs.class);
+	
+	public static void addingNumbers(double numOne,double numTwo,double numThree) {
+		try {
 		double numTotal = numOne + numTwo + numThree;
 		System.out.println("Sum: " + numTotal);
-		return numTotal;
-	}
-
-	public static void main(String[] args) {
-		try {
-			Scanner scan = new Scanner(System.in);
-			double firstNumber;
-			double secondNumber;
-			double thirdNumber;
-			System.out.println("Enter 3 numbers: ");
-			firstNumber = scan.nextDouble();
-			secondNumber = scan.nextDouble();
-			thirdNumber = scan.nextDouble();
-			CommandLineArgs obj = new CommandLineArgs();
-			obj.addingNumbers(firstNumber, secondNumber, thirdNumber);
 		} catch(Exception e) {
-			System.out.println("ERROR: " + e);
-			System.out.println("The program execution finished with an ERROR");
+			System.out.println(e);
 		}
 	}
+
+	
 }
