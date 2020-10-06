@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+import org.apache.log4j.Logger;
+
 public class DecreasingOrder {
-	static int rearrange(int x) {
+	static Logger logger = Logger.getLogger(DecreasingOrder.class);	
+	static int rearrangeNum(int x) {
+		logger.info("Inside rearrangeNum Method");
 		ArrayList<Integer> arr=  new ArrayList<Integer>();
 		while(x > 0) {
 			arr.add(x % 10);
@@ -20,6 +24,7 @@ public class DecreasingOrder {
 			result = result + (ints[j]*k);
 			k=k*10;
 		}
+		logger.info("Decreasing Order " + result);
 		return result;
 	}
 

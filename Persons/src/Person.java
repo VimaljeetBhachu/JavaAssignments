@@ -1,4 +1,3 @@
-
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -46,6 +45,7 @@ public class Person {
 	}
 	
 	public void display() {
+		try {
 		System.out.println("Name: "+getName());
 		System.out.println("Date of Birth: "+getDob().getD()+"/"+getDob().getM()+"/"+ getDob().getY());
 		LocalDate today = LocalDate.now();
@@ -53,20 +53,24 @@ public class Person {
 		Period p= Period.between(birthday, today);	
 		
 		System.out.println(p.getYears() +" Years, "+ p.getMonths() + " Months, " + p.getDays() + " Days ");
+		} catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public String olderOne(Person p) {
 		
+		try {
 		LocalDate birthday1 = LocalDate.of(this.getDob().getY(), this.getDob().getM(), this.getDob().getD());
 		LocalDate birthday2 = LocalDate.of(p.getDob().getY(), p.getDob().getM(), p.getDob().getD());
 		Period period= Period.between(birthday1, birthday2);
 		
 		
 		if(this.getDob().getY() > p.getDob().getY()) {
-			return (p.getName() + " is older than " + this.getName() + " by "+ period.getYears()+ " years,"+ period.getMonths() + " months,"+ period.getDays() +" days").toString();
+			return (p.getName() + " is older than " + this.getName() + " by "+ period.getYears() + " Years, "+ period.getMonths() + " Months, " + period.getDays() + " Days").toString();
 		}
 		else if(this.getDob().getY() < p.getDob().getY()) {
-			return (this.getName() + " is older than " + p.getName() + " by "+ period.getYears()+ " years,"+ period.getMonths() + " months,"+ period.getDays() +" days").toString();
+			return (this.getName() + " is older than " + p.getName() + " by " + period.getYears() + " Years, " + period.getMonths() + " Months, " + period.getDays() + " Days").toString();
 		}
 		else {
 			if(this.getDob().getM() > p.getDob().getM()) {
@@ -87,16 +91,10 @@ public class Person {
 				}
 			}
 		}
-		
-	}
-
-
-	public static void main(String[] args) {
-		Person person1 = new Person("Ram",5,6,1980);
-		person1.display();
-		Person person2 = new Person("Shyam",2,3,1987);
-		person2.display();
-		System.out.println(person1.olderOne(person2));
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		return null;
 	}
 }
 

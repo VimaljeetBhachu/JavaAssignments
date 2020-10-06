@@ -1,7 +1,11 @@
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
+
 public class OddNoTimes {
+	static Logger logger = Logger.getLogger(OddNoTimes.class);
 	static int findOdd(int arr[]) {
+		logger.info("Inside findOdd Method");
 		int n=0;
 		HashMap<Integer, Integer> list= new HashMap<Integer, Integer>();
 		for(int i=0;i<arr.length;i++) {
@@ -16,6 +20,7 @@ public class OddNoTimes {
 				break;
 			}
 		}
+		logger.info("Number that appeared odd number of times " + n);
 		return n;
 	}
 }

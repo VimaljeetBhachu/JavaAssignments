@@ -1,8 +1,14 @@
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
+
+
 public class NumberOfDuplicates {
 	
+	static Logger logger = Logger.getLogger(NumberOfDuplicates.class);
+	
 	static int findDuplicateValues(String s) {
+		logger.info("Inside findDuplicateValues Method");
 		int count=0;
 		s.toLowerCase();
 		HashMap<Character, Integer> map =new HashMap<Character, Integer>();
@@ -17,6 +23,7 @@ public class NumberOfDuplicates {
 			if(i > 1)
 				count++;
 		}
+		logger.info("Duplicate characters are : " + count);
 		return count;
 	}
 
