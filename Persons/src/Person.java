@@ -3,30 +3,30 @@ import java.time.Period;
 
 public class Person {
 	private String name;
-	private Date dob;
+	private findDate dob;
 	
-	class Date {
-		private int d;
-		private int m;
-		private int y;
+	class findDate {
+		private int date;
+		private int month;
+		private int year;
 		
-		public Date(int d, int m, int y) {
+		public findDate(int date, int month, int year) {
 			super();
-			this.d = d;
-			this.m = m;
-			this.y = y;
+			this.date = date;
+			this.month = month;
+			this.year = year;
 		}
 
-		public int getD() {
-			return d;
+		public int getDate() {
+			return date;
 		}
 
-		public int getM() {
-			return m;
+		public int getMonth() {
+			return month;
 		}
 
-		public int getY() {
-			return y;
+		public int getYear() {
+			return year;
 		}
 	}
 	
@@ -34,22 +34,22 @@ public class Person {
 		return name;
 	}
 
-	public Date getDob() {
+	public findDate getDob() {
 		return dob;
 	}
 
-	public Person(String name, int d, int m, int y) {
+	public Person(String name, int date, int month, int year) {
 		super();
 		this.name = name;
-		this.dob = new Date(d,m,y);
+		this.dob = new findDate(date,month,year);
 	}
 	
 	public void display() {
 		try {
 		System.out.println("Name: "+getName());
-		System.out.println("Date of Birth: "+getDob().getD()+"/"+getDob().getM()+"/"+ getDob().getY());
+		System.out.println("Date of Birth: "+getDob().getDate()+"/"+getDob().getMonth()+"/"+ getDob().getYear());
 		LocalDate today = LocalDate.now();
-		LocalDate birthday = LocalDate.of(getDob().getY(), getDob().getM(), getDob().getD());
+		LocalDate birthday = LocalDate.of(getDob().getYear(), getDob().getMonth(), getDob().getDate());
 		Period p= Period.between(birthday, today);	
 		
 		System.out.println(p.getYears() +" Years, "+ p.getMonths() + " Months, " + p.getDays() + " Days ");
@@ -61,29 +61,29 @@ public class Person {
 	public String olderOne(Person p) {
 		
 		try {
-		LocalDate birthday1 = LocalDate.of(this.getDob().getY(), this.getDob().getM(), this.getDob().getD());
-		LocalDate birthday2 = LocalDate.of(p.getDob().getY(), p.getDob().getM(), p.getDob().getD());
+		LocalDate birthday1 = LocalDate.of(this.getDob().getYear(), this.getDob().getMonth(), this.getDob().getDate());
+		LocalDate birthday2 = LocalDate.of(p.getDob().getYear(), p.getDob().getMonth(), p.getDob().getDate());
 		Period period= Period.between(birthday1, birthday2);
 		
 		
-		if(this.getDob().getY() > p.getDob().getY()) {
+		if(this.getDob().getYear() > p.getDob().getYear()) {
 			return (p.getName() + " is older than " + this.getName() + " by "+ period.getYears() + " Years, "+ period.getMonths() + " Months, " + period.getDays() + " Days").toString();
 		}
-		else if(this.getDob().getY() < p.getDob().getY()) {
+		else if(this.getDob().getYear() < p.getDob().getYear()) {
 			return (this.getName() + " is older than " + p.getName() + " by " + period.getYears() + " Years, " + period.getMonths() + " Months, " + period.getDays() + " Days").toString();
 		}
 		else {
-			if(this.getDob().getM() > p.getDob().getM()) {
+			if(this.getDob().getMonth() > p.getDob().getMonth()) {
 				return (p.getName() + " is older than " + this.getName() + " by "+ period.getYears()+ " years,"+ period.getMonths() + " months,"+ period.getDays() +" days").toString();
 			}
-			else if(this.getDob().getM() < p.getDob().getM()) {
+			else if(this.getDob().getMonth() < p.getDob().getMonth()) {
 				return (this.getName() + " is older than " + p.getName() + " by "+ period.getYears()+ " years,"+ period.getMonths() + " months,"+ period.getDays() +" days").toString();
 			}
 			else {
-				if(this.getDob().getD() > p.getDob().getD()) {
+				if(this.getDob().getDate() > p.getDob().getDate()) {
 					return (p.getName() + " is older than " + this.getName() + " by "+ period.getYears()+ " years,"+ period.getMonths() + " months,"+ period.getDays() +" days").toString();
 				}
-				else if(this.getDob().getD() < p.getDob().getD()) {
+				else if(this.getDob().getDate() < p.getDob().getDate()) {
 					return (this.getName() + " is older than " + p.getName() + " by "+ period.getYears()+ " years,"+ period.getMonths() + " months,"+ period.getDays() +" days").toString();
 				}
 				else {
